@@ -1,4 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://fb87buwmagok"]
+[gd_scene load_steps=10 format=3 uid="uid://fb87buwmagok"]
+
+[ext_resource type="PackedScene" uid="uid://b0q0bnia378s4" path="res://Scenes/Player.tscn" id="1_7i5vo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jlfd"]
 albedo_color = Color(0.827451, 0.733333, 0.392157, 1)
@@ -47,101 +49,108 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5v1qw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 
-[node name="tree" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-13.2463, 0.105473, 0.233021, 0.836718, 1.82586, 0.0782771, -1.53486, 0.0850963, -1.96836, 20.6307, 2.10003, 0.443155)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="tree"]
+[node name="tree" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.52478, -1.80424, -1.04183)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
 mesh = SubResource("CylinderMesh_mndb4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tree"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree"]
 
-[node name="green" type="Node3D" parent="tree"]
+[node name="green" type="Node3D" parent="Node3D/tree"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="tree/green"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree/green"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
 mesh = SubResource("SphereMesh_3bv31")
 surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tree/green"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree/green"]
 
-[node name="tree4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.58092)
+[node name="tree4" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.54697, -1.86976, 0.249237)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="tree4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
 mesh = SubResource("CylinderMesh_mndb4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tree4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree4"]
 
-[node name="green" type="Node3D" parent="tree4"]
+[node name="green" type="Node3D" parent="Node3D/tree4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="tree4/green"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree4/green"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
 mesh = SubResource("SphereMesh_3bv31")
 surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tree4/green"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree4/green"]
 
-[node name="tree5" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.03692)
+[node name="tree5" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.56808, -1.9321, 1.47782)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="tree5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
 mesh = SubResource("CylinderMesh_mndb4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tree5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree5"]
 
-[node name="green" type="Node3D" parent="tree5"]
+[node name="green" type="Node3D" parent="Node3D/tree5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="tree5/green"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree5/green"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
 mesh = SubResource("SphereMesh_3bv31")
 surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tree5/green"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree5/green"]
 
-[node name="tree3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.22388)
+[node name="tree3" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.47986, -1.67163, -3.655)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="tree3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
 mesh = SubResource("CylinderMesh_mndb4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tree3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree3"]
 
-[node name="green" type="Node3D" parent="tree3"]
+[node name="green" type="Node3D" parent="Node3D/tree3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="tree3/green"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree3/green"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
 mesh = SubResource("SphereMesh_3bv31")
 surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tree3/green"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree3/green"]
 
-[node name="tree2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.36359)
+[node name="tree2" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.50446, -1.74424, -2.22418)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="tree2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
 mesh = SubResource("CylinderMesh_mndb4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tree2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree2"]
 
-[node name="green" type="Node3D" parent="tree2"]
+[node name="green" type="Node3D" parent="Node3D/tree2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="tree2/green"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree2/green"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
 mesh = SubResource("SphereMesh_3bv31")
 surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tree2/green"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree2/green"]
+
+[node name="Player" parent="." instance=ExtResource("1_7i5vo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.24865, 1.46623, 0.292753)
