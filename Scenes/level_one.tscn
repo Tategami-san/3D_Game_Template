@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://fb87buwmagok"]
+[gd_scene load_steps=11 format=3 uid="uid://fb87buwmagok"]
 
 [ext_resource type="PackedScene" uid="uid://b0q0bnia378s4" path="res://Scenes/Player.tscn" id="1_7i5vo"]
 
@@ -13,6 +13,8 @@ size = Vector3(80, 1, 80)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5v1qw"]
 albedo_color = Color(0.0470588, 0.203922, 0.133333, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0p15w"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_mndb4"]
 
@@ -31,126 +33,737 @@ transform = Transform3D(1.00197, 0, 0, 0, 1.00197, 0, 0, 0, 1.00197, 0, 0, 0)
 
 [node name="gai" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.16432, 4.36723, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="gai"]
 transform = Transform3D(-13.2463, 0.105473, 0.233021, 0.836718, 1.82586, 0.0782771, -1.53486, 0.0850963, -1.96836, 17.4664, -2.2672, 0.443155)
 material_overlay = SubResource("StandardMaterial3D_1jlfd")
 mesh = SubResource("PrismMesh_pqj8d")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="gai"]
-transform = Transform3D(1.01825, 0, 0, 0, 1.01825, 0, 0, 0, 1.01825, 0, 0, 0)
+[node name="Node3D" type="Node3D" parent="gai"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gai/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43455, 0, 0)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.468622, 0, 0.840412)
 mesh = SubResource("BoxMesh_j8wbq")
 surface_material_override/0 = SubResource("StandardMaterial3D_5v1qw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="block zone" type="Node3D" parent="."]
+
+[node name="block" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(2.29583, 0.111008, 0.257259, -0.145019, 1.92168, 0.0864191, 0.26602, 0.0895619, -2.1731, 20.5861, 5.74091, 0.443155)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block2" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(2.09764, 0.18231, 0.369018, -0.1325, 3.156, 0.123962, 0.243055, 0.147089, -3.11715, 20.5861, 5.74091, 8.70135)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block3" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(4.88302, 0.290465, 0.457604, -0.308442, 5.02828, 0.15372, 0.5658, 0.234349, -3.86544, 20.5861, 5.74091, -13.1795)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block4" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(2.29583, 0.111008, 0.257259, -0.113389, 1.91919, -0.164643, 0.280963, -0.13254, -2.16858, 20.5861, 9.22989, 0.443155)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block5" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(3.16903, 0.189555, 0.369267, -0.200176, 3.28142, 0.124045, 0.367198, 0.152934, -3.11925, 5.45285, 5.74091, 8.20225)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block6" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(3.9317, 0.0301723, 0.268588, -0.248351, 0.522318, 0.0902251, 0.455569, 0.0243432, -2.26881, 5.45285, 5.74091, 13.0425)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block7" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(4.32627, 0.239321, 0.995508, -0.273274, 4.14293, 0.334414, 0.501288, 0.193086, -8.4092, 5.45285, 5.74091, -7.06183)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block8" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(1.386, 0.0709058, 1.1467, -0.0875486, 1.22746, 0.385202, 0.160597, 0.0572073, -9.68632, 5.45285, 5.74091, -27.9994)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="Ω" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(6.55215, 0.124436, 0.18632, -0.413874, 2.15413, 0.0625891, 0.759202, 0.100396, -1.57387, -6.37194, 5.74091, 8.20225)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block10" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(3.01888, 0.293866, 0.713248, -0.190691, 5.08717, 0.239597, 0.3498, 0.237093, -6.02491, -6.37194, 3.22878, 16.1926)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block11" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(1.51202, 0.629377, 0.782666, -0.0955089, 10.8953, 0.262916, 0.175199, 0.507786, -6.61129, -6.37194, 1.38139, -3.22089)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block12" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(8.73644, -0.244153, 0.286763, -0.551848, -4.22657, 0.0963306, 1.0123, -0.196984, -2.42233, -6.37194, 3.01671, -13.3611)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block9" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(2.29583, 0.111008, 0.257259, -0.145019, 1.92168, 0.0864191, 0.26602, 0.0895619, -2.1731, -18.0629, 5.74091, 8.20225)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block13" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(2.29583, 0.111008, 0.257259, -0.145019, 1.92168, 0.0864191, 0.26602, 0.0895619, -2.1731, -18.0629, 5.74091, 13.0425)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block14" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(2.29583, 0.111008, 0.257259, -0.145019, 1.92168, 0.0864191, 0.26602, 0.0895619, -2.1731, -18.0629, 5.74091, -3.22089)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="block15" type="MeshInstance3D" parent="block zone"]
+transform = Transform3D(2.29583, 0.111008, 0.257259, -0.145019, 1.92168, 0.0864191, 0.26602, 0.0895619, -2.1731, -18.0629, 5.74091, -9.70962)
+mesh = SubResource("BoxMesh_0p15w")
+skeleton = NodePath("../../trees/StaticBody3D")
+
+[node name="trees" type="Node3D" parent="."]
 transform = Transform3D(-13.2463, 0.105473, 0.233021, 0.836718, 1.82586, 0.0782771, -1.53486, 0.0850963, -1.96836, 20.6307, 2.10003, 0.443155)
 
-[node name="tree" type="Node3D" parent="Node3D"]
+[node name="tree" type="Node3D" parent="trees"]
 transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.52478, -1.80424, -1.04183)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees/tree"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
 mesh = SubResource("CylinderMesh_mndb4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees/tree"]
 
-[node name="green" type="Node3D" parent="Node3D/tree"]
+[node name="green" type="Node3D" parent="trees/tree"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree/green"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees/tree/green"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
 mesh = SubResource("SphereMesh_3bv31")
 surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree/green"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees/tree/green"]
 
-[node name="tree4" type="Node3D" parent="Node3D"]
+[node name="tree4" type="Node3D" parent="trees"]
 transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.54697, -1.86976, 0.249237)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees/tree4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
 mesh = SubResource("CylinderMesh_mndb4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees/tree4"]
 
-[node name="green" type="Node3D" parent="Node3D/tree4"]
+[node name="green" type="Node3D" parent="trees/tree4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree4/green"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees/tree4/green"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
 mesh = SubResource("SphereMesh_3bv31")
 surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree4/green"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees/tree4/green"]
 
-[node name="tree5" type="Node3D" parent="Node3D"]
+[node name="tree5" type="Node3D" parent="trees"]
 transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.56808, -1.9321, 1.47782)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees/tree5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
 mesh = SubResource("CylinderMesh_mndb4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees/tree5"]
 
-[node name="green" type="Node3D" parent="Node3D/tree5"]
+[node name="green" type="Node3D" parent="trees/tree5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree5/green"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees/tree5/green"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
 mesh = SubResource("SphereMesh_3bv31")
 surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree5/green"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees/tree5/green"]
 
-[node name="tree3" type="Node3D" parent="Node3D"]
+[node name="tree3" type="Node3D" parent="trees"]
 transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.47986, -1.67163, -3.655)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees/tree3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
 mesh = SubResource("CylinderMesh_mndb4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees/tree3"]
 
-[node name="green" type="Node3D" parent="Node3D/tree3"]
+[node name="green" type="Node3D" parent="trees/tree3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree3/green"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees/tree3/green"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
 mesh = SubResource("SphereMesh_3bv31")
 surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree3/green"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees/tree3/green"]
 
-[node name="tree2" type="Node3D" parent="Node3D"]
+[node name="tree2" type="Node3D" parent="trees"]
 transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.50446, -1.74424, -2.22418)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees/tree2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
 mesh = SubResource("CylinderMesh_mndb4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees/tree2"]
 
-[node name="green" type="Node3D" parent="Node3D/tree2"]
+[node name="green" type="Node3D" parent="trees/tree2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/tree2/green"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees/tree2/green"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
 mesh = SubResource("SphereMesh_3bv31")
 surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree2/green"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees/tree2/green"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="trees"]
+
+[node name="trees2" type="Node3D" parent="."]
+transform = Transform3D(-13.2463, 0.105473, 0.233021, 0.836718, 1.82586, 0.0782771, -1.53486, 0.0850963, -1.96836, 20.6307, 2.10003, 14.8106)
+
+[node name="tree" type="Node3D" parent="trees2"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.52478, -1.80424, -1.04183)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees2/tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees2/tree"]
+
+[node name="green" type="Node3D" parent="trees2/tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees2/tree/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees2/tree/green"]
+
+[node name="tree4" type="Node3D" parent="trees2"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.54697, -1.86976, 0.249237)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees2/tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees2/tree4"]
+
+[node name="green" type="Node3D" parent="trees2/tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees2/tree4/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees2/tree4/green"]
+
+[node name="tree5" type="Node3D" parent="trees2"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.56808, -1.9321, 1.47782)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees2/tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees2/tree5"]
+
+[node name="green" type="Node3D" parent="trees2/tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees2/tree5/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees2/tree5/green"]
+
+[node name="tree3" type="Node3D" parent="trees2"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.47986, -1.67163, -3.655)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees2/tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees2/tree3"]
+
+[node name="green" type="Node3D" parent="trees2/tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees2/tree3/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees2/tree3/green"]
+
+[node name="tree2" type="Node3D" parent="trees2"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.50446, -1.74424, -2.22418)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees2/tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees2/tree2"]
+
+[node name="green" type="Node3D" parent="trees2/tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees2/tree2/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees2/tree2/green"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="trees2"]
+
+[node name="trees3" type="Node3D" parent="."]
+transform = Transform3D(-13.2463, 0.105473, 0.233021, 0.836718, 1.82586, 0.0782771, -1.53486, 0.0850963, -1.96836, 20.6307, 2.10003, -13.6297)
+
+[node name="tree" type="Node3D" parent="trees3"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.52478, -1.80424, -1.04183)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees3/tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees3/tree"]
+
+[node name="green" type="Node3D" parent="trees3/tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees3/tree/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees3/tree/green"]
+
+[node name="tree4" type="Node3D" parent="trees3"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.54697, -1.86976, 0.249237)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees3/tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees3/tree4"]
+
+[node name="green" type="Node3D" parent="trees3/tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees3/tree4/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees3/tree4/green"]
+
+[node name="tree5" type="Node3D" parent="trees3"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.56808, -1.9321, 1.47782)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees3/tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees3/tree5"]
+
+[node name="green" type="Node3D" parent="trees3/tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees3/tree5/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees3/tree5/green"]
+
+[node name="tree3" type="Node3D" parent="trees3"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.47986, -1.67163, -3.655)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees3/tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees3/tree3"]
+
+[node name="green" type="Node3D" parent="trees3/tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees3/tree3/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees3/tree3/green"]
+
+[node name="tree2" type="Node3D" parent="trees3"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.50446, -1.74424, -2.22418)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees3/tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees3/tree2"]
+
+[node name="green" type="Node3D" parent="trees3/tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees3/tree2/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees3/tree2/green"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="trees3"]
+
+[node name="trees4" type="Node3D" parent="."]
+transform = Transform3D(-13.2463, 0.105473, 0.233021, 0.836718, 1.82586, 0.0782771, -1.53486, 0.0850963, -1.96836, 6.95752, 2.10003, 0.443155)
+
+[node name="tree" type="Node3D" parent="trees4"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.52478, -1.80424, -1.04183)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees4/tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees4/tree"]
+
+[node name="green" type="Node3D" parent="trees4/tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees4/tree/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees4/tree/green"]
+
+[node name="tree4" type="Node3D" parent="trees4"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.54697, -1.86976, 0.249237)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees4/tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees4/tree4"]
+
+[node name="green" type="Node3D" parent="trees4/tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees4/tree4/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees4/tree4/green"]
+
+[node name="tree5" type="Node3D" parent="trees4"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.56808, -1.9321, 1.47782)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees4/tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees4/tree5"]
+
+[node name="green" type="Node3D" parent="trees4/tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees4/tree5/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees4/tree5/green"]
+
+[node name="tree3" type="Node3D" parent="trees4"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.47986, -1.67163, -3.655)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees4/tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees4/tree3"]
+
+[node name="green" type="Node3D" parent="trees4/tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees4/tree3/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees4/tree3/green"]
+
+[node name="tree2" type="Node3D" parent="trees4"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.50446, -1.74424, -2.22418)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees4/tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees4/tree2"]
+
+[node name="green" type="Node3D" parent="trees4/tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees4/tree2/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees4/tree2/green"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="trees4"]
+
+[node name="trees5" type="Node3D" parent="."]
+transform = Transform3D(-13.2463, 0.105473, 0.233021, 0.836718, 1.82586, 0.0782771, -1.53486, 0.0850963, -1.96836, 6.95752, 2.10003, -24.1951)
+
+[node name="tree" type="Node3D" parent="trees5"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.52478, -1.80424, -1.04183)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees5/tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees5/tree"]
+
+[node name="green" type="Node3D" parent="trees5/tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees5/tree/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees5/tree/green"]
+
+[node name="tree4" type="Node3D" parent="trees5"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.54697, -1.86976, 0.249237)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees5/tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees5/tree4"]
+
+[node name="green" type="Node3D" parent="trees5/tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees5/tree4/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees5/tree4/green"]
+
+[node name="tree5" type="Node3D" parent="trees5"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.56808, -1.9321, 1.47782)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees5/tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees5/tree5"]
+
+[node name="green" type="Node3D" parent="trees5/tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees5/tree5/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees5/tree5/green"]
+
+[node name="tree3" type="Node3D" parent="trees5"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.47986, -1.67163, -3.655)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees5/tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees5/tree3"]
+
+[node name="green" type="Node3D" parent="trees5/tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees5/tree3/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees5/tree3/green"]
+
+[node name="tree2" type="Node3D" parent="trees5"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.50446, -1.74424, -2.22418)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees5/tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees5/tree2"]
+
+[node name="green" type="Node3D" parent="trees5/tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees5/tree2/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees5/tree2/green"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="trees5"]
+
+[node name="trees6" type="Node3D" parent="."]
+transform = Transform3D(-13.2463, 0.105473, 0.233021, 0.836718, 1.82586, 0.0782771, -1.53486, 0.0850963, -1.96836, 6.95752, 2.10003, 23.7811)
+
+[node name="tree" type="Node3D" parent="trees6"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.52478, -1.80424, -1.04183)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees6/tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees6/tree"]
+
+[node name="green" type="Node3D" parent="trees6/tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees6/tree/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees6/tree/green"]
+
+[node name="tree4" type="Node3D" parent="trees6"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.54697, -1.86976, 0.249237)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees6/tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees6/tree4"]
+
+[node name="green" type="Node3D" parent="trees6/tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees6/tree4/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees6/tree4/green"]
+
+[node name="tree5" type="Node3D" parent="trees6"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.56808, -1.9321, 1.47782)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees6/tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees6/tree5"]
+
+[node name="green" type="Node3D" parent="trees6/tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees6/tree5/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees6/tree5/green"]
+
+[node name="tree3" type="Node3D" parent="trees6"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.47986, -1.67163, -3.655)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees6/tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees6/tree3"]
+
+[node name="green" type="Node3D" parent="trees6/tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees6/tree3/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees6/tree3/green"]
+
+[node name="tree2" type="Node3D" parent="trees6"]
+transform = Transform3D(-0.0742005, 0.00468699, -0.00859771, 0.0314643, 0.544686, 0.0253858, 0.0592193, 0.0198932, -0.500235, 1.50446, -1.74424, -2.22418)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees6/tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101917, 1.50979, 0.911304)
+mesh = SubResource("CylinderMesh_mndb4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ebqa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees6/tree2"]
+
+[node name="green" type="Node3D" parent="trees6/tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115994, 0.279689, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trees6/tree2/green"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.05036, 0.910858)
+mesh = SubResource("SphereMesh_3bv31")
+surface_material_override/0 = SubResource("StandardMaterial3D_d7df0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trees6/tree2/green"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="trees6"]
 
 [node name="Player" parent="." instance=ExtResource("1_7i5vo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.24865, 1.46623, 0.292753)
