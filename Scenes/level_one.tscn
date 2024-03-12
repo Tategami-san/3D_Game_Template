@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://fb87buwmagok"]
+[gd_scene load_steps=13 format=3 uid="uid://fb87buwmagok"]
 
 [ext_resource type="PackedScene" uid="uid://b0q0bnia378s4" path="res://Scenes/Player.tscn" id="1_7i5vo"]
+[ext_resource type="PackedScene" uid="uid://ceovijbgc71ra" path="res://Models/Coin.glb" id="1_rvofe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jlfd"]
 albedo_color = Color(0.827451, 0.733333, 0.392157, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_pqj8d"]
 size = Vector3(1, 1, 2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0ydpa"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j8wbq"]
 size = Vector3(80, 1, 80)
@@ -43,6 +46,15 @@ mesh = SubResource("PrismMesh_pqj8d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="gai/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43455, 0, 0)
+
+[node name="COINS" type="Area3D" parent="."]
+transform = Transform3D(-0.030399, 0, -0.999538, 0, 1, 0, 0.999538, 0, -0.030399, 7.0741, 1.9884, -7.1093)
+
+[node name="Coin" parent="COINS" instance=ExtResource("1_rvofe")]
+transform = Transform3D(1, 0, -2.06589e-11, 0, 1, 0, -2.73825e-10, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="COINS/Coin"]
+shape = SubResource("SphereShape3D_0ydpa")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
