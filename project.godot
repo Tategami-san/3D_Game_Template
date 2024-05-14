@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="3D_Game_Template"
-run/main_scene="res://Scenes/Level1.tscn"
+run/main_scene="res://Scenes/level_one.tscn/Node2D"
 config/features=PackedStringArray("4.1")
 config/icon="res://icon.png"
+
+[autoload]
+
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+global="*res://Scripts/global.gd"
 
 [display]
 
@@ -22,7 +27,11 @@ window/size/fullscreen=true
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[filesystem]
+
+import/fbx/enabled=false
 
 [gui]
 
@@ -89,6 +98,10 @@ look_down={
 "deadzone": 0.5,
 "events": []
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Dialogue.dialogue")
 
 [physics]
 

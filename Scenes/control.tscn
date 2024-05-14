@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxp2j6pacoqj4"]
+
+[ext_resource type="Script" path="res://Scripts/Control.gd" id="1_tdng4"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -113.0
+offset_top = -51.0
+offset_right = 141.0
+offset_bottom = 109.0
+script = ExtResource("1_tdng4")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.033
+offset_left = 63.0
+offset_top = 49.0
+offset_right = 158.0
+offset_bottom = 74.72
+text = "Game start"
